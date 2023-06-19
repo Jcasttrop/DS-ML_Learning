@@ -1,3 +1,7 @@
+import pandas as pd
+
+restaurant_groups = pd.DataFrame({'group_size': [2, 2, 3, 1, 2, 1, 1, 2, 2, 2]})
+
 ##################
 #Creating a probability distribution
 #A new restaurant opened a few months ago, and the restaurant's 
