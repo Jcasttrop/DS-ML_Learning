@@ -9,6 +9,7 @@ def breadth_first_search(start_node):
 
     #queue is FIFO
     queue = [start_node]
+    actual_node.visited = True
     #we keep iterating (considering the neighbors) until the queue becomes empty
     while queue:
         actual_node = queue.pop(0) #remove and return the first element in the list
@@ -33,4 +34,6 @@ if __name__ == '__main__':
     node1.adjacency_list.append(node3)
     node2.adjacency_list.append(node4)
     node4.adjacency_list.append(node5)
-    
+
+    #run the algorithm
+    breadth_first_search(node1)
