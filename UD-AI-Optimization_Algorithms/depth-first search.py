@@ -4,7 +4,7 @@ class Node:
         self.adjacencyList = [] # list of nodes that are connected to this node
         self.visited = False # to keep track of whether we have visited this node or not
 
-def depth_first_search(start_node):
+def depth_first_search_stack(start_node):
 
     #we need a LIFO: last in first out data structure
 
@@ -20,17 +20,33 @@ def depth_first_search(start_node):
             if not n.visited: # if the node has not been visited so far
                 stack.append(n) # add it to the stack
 
-if __name__ == '__name__':
-    node1 = Node("A")
-    node2 = Node("B")
-    node3 = Node("C")
-    node4 = Node("D")
-    node5 = Node("E")
 
-    node1.adjacencyList.append(node2)
-    node1.adjacencyList.append(node3)
-    node2.adjacencyList.append(node4)
-    node4.adjacencyList.append(node5)
+def depth_first_search_recursive(node):
 
-    depth_first_search(node1)
+    node.visited = True
+    print(node.name)
+
+    for n in node.adjacencyList:
+        if not n.visited:
+            depth_first_search_recursive(n)
+
+
+if __name__ == '__main__':
+
+    node_1 = Node("A")
+    node_2 = Node("B")
+    node_3 = Node("C")
+    node_4 = Node("D")
+    node_5 = Node("E")
+
+    node_1.adjacencyList.append(node_2)
+    node_1.adjacencyList.append(node_3)
+    node_2.adjacencyList.append(node_4)
+    node_4.adjacencyList.append(node_5)
     
+    depth_first_search_stack(node_1)
+    depth_first_search_recursive(node_1)
+
+    
+
+
